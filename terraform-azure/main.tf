@@ -37,10 +37,10 @@ resource "azurerm_virtual_network" "example-network" {
 }
 
 resource "azurerm_subnet" "example-subnet" {
-    name = "rg-junk-subnet"
-    resource_group_name = azurerm_resource_group.example.name
-    virtual_network_name = azurerm_virtual_network.example-network.name
-    address_prefixes = ["170.123.1.0/24"]
+  name                 = "rg-junk-subnet"
+  resource_group_name  = azurerm_resource_group.example.name
+  virtual_network_name = azurerm_virtual_network.example-network.name
+  address_prefixes     = ["170.123.1.0/24"]
 }
 
 resource "azurerm_network_security_group" "junk-sg" {
@@ -49,6 +49,84 @@ resource "azurerm_network_security_group" "junk-sg" {
   resource_group_name = azurerm_resource_group.example.name
   tags = {
     environment = "dev"
-    lifespan = "disposable"
+    lifespan    = "disposable"
+  }
+}
+
+resource "azurerm_network_security_rule" "junk-rule" {
+  name                        = "dev-junk-rule"
+  priority                    = 100
+  direction                   = "Inbound" # allow access 
+  access                      = "Allow"
+  protocol                    = "*"
+  source_port_range           = "*"
+  destination_port_range      = "*"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = azurerm_resource_group.example.name
+  network_security_group_name = azurerm_network_security_group.junk-sg.name
+}
+
+
+resource "azurerm_subnet_network_security_group_association" "junk-association" {
+  subnet_id                 = azurerm_subnet.example-subnet.id
+  network_security_group_id = azurerm_network_security_group.junk-sg.id
+}
+
+
+resource "azurerm_public_ip" "junk-public-ip" {
+  name                = "acceptanceTestPublicIp1"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  allocation_method   = "Dynamic" # No ip will exist until other resources are provisioned
+
+  tags = {
+    environment = "Dev"
+  }
+}
+
+
+resource "azurerm_network_interface" "example" {
+  name                = "junk-nic"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.example-subnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.junk-public-ip.id
+  }
+  tags = {
+    environment = "Dev"
+    lifespan = "Disposable"
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "example" {
+  name                = "example-machine"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  size                = "Standard_F2"
+  admin_username      = "adminuser"
+  network_interface_ids = [
+    azurerm_network_interface.example.id,
+  ]
+
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/azure-key.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
   }
 }

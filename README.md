@@ -1,8 +1,11 @@
 # [Learn Terraform with Azure by Building a Dev Environment – Full Course for Beginners](https://youtu.be/V53AHWun17s)
 ## Setup
 - [Install Azure CLI](https://youtu.be/V53AHWun17s?t=165)
-- ```az cloud set --name AzureUSGovernment``` initiates a login process.
+- ```az cloud set --name AzureUSGovernment``` sets the cloud environment
+- ```az login``` initiates a login process.
 - [Terraform extension](https://youtu.be/V53AHWun17s?t=294)
+### Also Handy
+[This is the Microsoft Azure Government Console Login Link](https://portal.azure.us/#home)
 ## [Resource Group](https://youtu.be/V53AHWun17s?t=686)
 - [Terraform backend is local! (for now)](https://youtu.be/V53AHWun17s?t=592)
     - the provider is a compiled GO file
@@ -22,16 +25,34 @@
 ## [DESTROY!!!!](https://youtu.be/V53AHWun17s?t=1658)
 ## [Subnet](https://youtu.be/V53AHWun17s?t=1829)
 ## [Security Group](https://youtu.be/V53AHWun17s?t=2161)
+  - Security Group Rule is created in this area
+## [Security Group Association](https://youtu.be/V53AHWun17s?t=2517)
+- Associates security group to subnet
+
+## [A Public IP](https://youtu.be/V53AHWun17s?t=2655)
+- Will not have an IP until other resources, I.e. a virtual machine, are provisioned.
+
+## [A Network Interface](https://youtu.be/V53AHWun17s?t=2881)
+- Have to add public IP address ID.  Not in the documentation example.
+
+## [A Key Pair](https://youtu.be/V53AHWun17s?t=3189)
+- ssh-keygen to create a key pair
+- Used by the Linux vm 
+- **I actually logged in!!!***
+
+## [Bootstrap Using Data](https://youtu.be/V53AHWun17s?t=3477)
+
 # Resources
+- [Azurerm Docs](https://registry.terraform.io/providers/hashicorp/azurerm/3.59.0)
 - [Azure CLI Download](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
 - [Azure Government Documentation](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli)
-
+    ```ssh-keygen -t rsa  ```
 
 URL: https://portal.azure.us/#home
 evansc.dev@axientcorp.onmicrosoft.us
 
-```az cloud set --name AzureUSGovernment``` initiates a login process.
+```az cloud set --name AzureUSGovernment``` sets the cloud environment.
 
 Yielded this:
 ```
