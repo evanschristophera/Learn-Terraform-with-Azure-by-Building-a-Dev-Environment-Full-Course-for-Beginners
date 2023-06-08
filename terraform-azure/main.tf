@@ -95,11 +95,11 @@ resource "azurerm_network_interface" "example" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.example-subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.junk-public-ip.id
+    public_ip_address_id          = azurerm_public_ip.junk-public-ip.id
   }
   tags = {
     environment = "Dev"
-    lifespan = "Disposable"
+    lifespan    = "Disposable"
   }
 }
 
@@ -112,6 +112,10 @@ resource "azurerm_linux_virtual_machine" "example" {
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
+
+
+
+  custom_data = filebase64("customdata.tpl")
 
   admin_ssh_key {
     username   = "adminuser"
@@ -129,4 +133,28 @@ resource "azurerm_linux_virtual_machine" "example" {
     sku       = "16.04-LTS"
     version   = "latest"
   }
+
+  # Never got this to work
+  # provisioner "local-exec" {
+  #   command = templatefile( "windows-ssh-script.tpl", {
+  #     hostname = self.public_ip_address,
+  #     user = "adminuser",
+  #     pem = "~/.ssh/azurekey"
+  #   })
+  #   interpreter = ["Powershell", "-command"]
+  # }
+
+  tags = {
+    environment = "dev"
+    lifespan    = "disposable"
+  }
+}
+
+data "azurerm_public_ip" "junk_public_ip_data" {
+  name                = azurerm_public_ip.junk-public-ip.name
+  resource_group_name = azurerm_resource_group.example.name
+}
+
+output "public-ip-address" {
+  value       = "${azurerm_linux_virtual_machine.example.name}: ${data.azurerm_public_ip.junk_public_ip_data.ip_address} "
 }

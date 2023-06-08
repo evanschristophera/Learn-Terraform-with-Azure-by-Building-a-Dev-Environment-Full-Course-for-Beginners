@@ -40,13 +40,33 @@
 - Used by the Linux vm 
 - **I actually logged in!!!***
 
-## [Bootstrap Using Data](https://youtu.be/V53AHWun17s?t=3477)
+## [Bootstrap Using Custom Data Element](https://youtu.be/V53AHWun17s?t=3477)
+- Run the commands in a shell first to make sure they are correct
+- Docker is there after ```terraform apply```
+
+## [SSH Config Scripts](https://youtu.be/V53AHWun17s?t=3769)
+- files were added in this section
+
+## [Provisioner (local stuff only)](https://youtu.be/V53AHWun17s?t=3975)
+
+- Lightweight and does not affect overall deployment
+- Last resort
+- Provisioners don't get picked up by state
+- So just replace it
+- Didn't get this to work because windows stinks:
+  ```terraform state list```
+  ```terraform apply -replace <RESOURCE_FROM_ABOVE>```
+
+## [Terraform Datasources](https://youtu.be/V53AHWun17s?t=4518)
+- Uses the AZ or AWS API
+- Not in the terraform state
 
 # Resources
 - [Azurerm Docs](https://registry.terraform.io/providers/hashicorp/azurerm/3.59.0)
 - [Azure CLI Download](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
 - [Azure Government Documentation](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli)
+- [Windows script tpl file\()https://youtu.be/V53AHWun17s?t=3889]
     ```ssh-keygen -t rsa  ```
 
 URL: https://portal.azure.us/#home
