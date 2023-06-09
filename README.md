@@ -64,6 +64,7 @@
 # Resources
 - [Azurerm Docs](https://registry.terraform.io/providers/hashicorp/azurerm/3.59.0)
 - [Azure CLI Download](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
+- [Netextender Installation Article](https://www.sonicwall.com/support/knowledge-base/how-can-i-download-and-install-netextender-on-linux/180105195559153/)
 
 - [Azure Government Documentation](https://learn.microsoft.com/en-us/azure/azure-government/documentation-government-get-started-connect-with-cli)
 - [Windows script tpl file\()https://youtu.be/V53AHWun17s?t=3889]
