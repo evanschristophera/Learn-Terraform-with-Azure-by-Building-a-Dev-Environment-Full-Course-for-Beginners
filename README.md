@@ -97,3 +97,6 @@ Yielded this:
   }
 ]
 ```
+
+## Linux Tidbits
+To change java version: ```sudo update-alternatives --config java```
