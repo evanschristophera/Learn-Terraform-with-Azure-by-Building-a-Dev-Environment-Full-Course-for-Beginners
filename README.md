@@ -70,6 +70,9 @@
 - [Windows script tpl file\()https://youtu.be/V53AHWun17s?t=3889]
     ```ssh-keygen -t rsa  ```
 
+
+- [Java install ](https://www.linuxcapable.com/how-to-install-openjdk-17-on-ubuntu-linux/)
+
 URL: https://portal.azure.us/#home
 evansc.dev@axientcorp.onmicrosoft.us
 
