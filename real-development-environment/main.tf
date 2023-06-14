@@ -1,4 +1,5 @@
-terraform {
+# Uncomment to run 
+#terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
