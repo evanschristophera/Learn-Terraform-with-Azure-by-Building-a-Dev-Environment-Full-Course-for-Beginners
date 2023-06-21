@@ -10,7 +10,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &&
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" &&
 sudo apt-get update -y &&
 sudo sudo apt-get install docker-ce docker-ce-cli containerd.io -y &&
-sudo usermod -aG docker adminuser &&
+sudo usermod -aG docker jalvarez &&
 sudo apt install nodejs-legacy -y &&
 sudo apt install npm -y &&
 sudo apt-get install openjdk-8-jdk -y && echo "jkd8" >> /tmp/stage &&
