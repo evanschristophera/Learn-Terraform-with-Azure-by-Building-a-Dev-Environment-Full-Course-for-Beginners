@@ -42,7 +42,18 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-
 sudo install minikube-linux-amd64 /usr/local/bin/minikube &&
 echo minikube >> /tmp/diditwork
 
+
 # Database worked when done by hand.
+
+
+# Java 8 for netextender
+sudo apt-get install openjdk-8-jdk -y && 
+echo java8 >> /tmp/diditwork
+
+sudo apt-get install openjdk-11-jdk -y && 
+echo "java11" >> /tmp/diditwork 
+sudo apt install openjdk-17-jdk -y && 
+echo "java-17" >>  /tmp/diditwork 
 
 
 
