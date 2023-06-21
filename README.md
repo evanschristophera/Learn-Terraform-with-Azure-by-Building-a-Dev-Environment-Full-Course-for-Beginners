@@ -1,11 +1,66 @@
 # [Learn Terraform with Azure by Building a Dev Environment – Full Course for Beginners](https://youtu.be/V53AHWun17s)
+
+# [This is my current attempt](https://docs.docker.com/registry/deploying/)
+  - along with the fact that the tag includes the host name
+
+    ```docker run -it localhost:5000/my-ubuntu``` 
+    
+    works
+
+
+# Currently working on [this](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04) DONE
+# Adding a local docker repositoyr
+- netextender connection attempt
+
+```netExtender -u user -p password -d 'domain' --always-trust host```
+
+
+# History from latest session so I can repeat it.
+
+  1.  ```clear```
+  2.  ```ls```
+  3.  ```tar -xvzf db.xvzf```
+  4.  ```docker run -d -p 5000:5000 --restart=always --name registry registry:2```
+  5.  ```cd database-rimfire-de-mk2/```
+  6.  ```ls```
+  7.  ```cd database/```
+  8.  ```ls```
+  9.  ```cd database_```
+  10. ```cd database_init/```
+  11. ```ls```
+  12. ```cd ~/database-rimfire-de-mk2/```
+  13. ```find . -name skaffold.y*```
+  14. ```cd database/```
+  15. ```ls```
+  16. ```skaffold debug```
+  17. ```minikube```
+  18. ```cd```
+  19. ```curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb```
+  20. ```sudo dpkg -i minikube_latest_amd64.deb```
+  21. ```minikube start```
+  22. ```kubectl get po -A```
+  23. ```echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check```
+  24. ```sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl```
+  25. ```kubectl version --client```
+  26. ```kubectl version --client --output=yaml```
+  27. ```history```
+
+[https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
+
+[Install and Set Up kubectl on Linux
+](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+
+
+For a local docker repository which is necessary for local kubernetes and skaffold setup.
 ## Setup
 - [Install Azure CLI](https://youtu.be/V53AHWun17s?t=165)
 - ```az cloud set --name AzureUSGovernment``` sets the cloud environment
 - ```az login``` initiates a login process.
 - [Terraform extension](https://youtu.be/V53AHWun17s?t=294)
 ### Also Handy
-[This is the Microsoft Azure Government Console Login Link](https://portal.azure.us/#home)
+[This is the Microsoft Azure Government Console Login Link](https://portal.azure.us/
+#home)
+[Skaffold older versions](https://github.com/GoogleContainerTools/skaffold/releases)
 ## [Resource Group](https://youtu.be/V53AHWun17s?t=686)
 - [Terraform backend is local! (for now)](https://youtu.be/V53AHWun17s?t=592)
     - the provider is a compiled GO file

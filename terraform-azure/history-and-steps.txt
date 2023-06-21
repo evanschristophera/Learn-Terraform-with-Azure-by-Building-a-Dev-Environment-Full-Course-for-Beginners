@@ -1,0 +1,53 @@
+    1  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    2  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    3  sudo apt-get update
+    4  apt-cache policy docker-ce
+    5  sudo apt-get install -y docker-ce
+    6  sudo systemctl status docker
+    7  sudo usermod -aG docker ${USER}
+    8  su - ${USER}
+    9  exit
+   10  id -nG
+   11  sudo usermod -aG docker username
+   12  sudo usermod -aG docker cevans
+   13  docker
+   14  docker run hello-world
+   15  docker run -it ubuntu
+   16  history
+   17  sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+   18  sudo chmod +x /usr/local/bin/docker-compose
+   19  docker-compose --version
+   20  mkdir hello-world && cd $_
+   21  ls
+   22  vi docker-compose.yml
+   23  clear
+   24  vi docker-compose.yml
+   25  docker-compose up
+   26  mkdir ~/docker-registry && cd $_
+   27  mkdir data
+   28  vi docker-compose
+   29  docker-compose up
+   30  pwd
+   31  ls
+   32  mv docker-compose docker-compose.yml
+   33  docker-compose up
+   34  history
+
+docker compose working
+   35  cat docker-compose.yml
+   36  sudo apt install nginx
+   37  sudo ufw app list
+   38  sudo ufw allow 'Nginx HTTP'
+   39  sudo ufw status
+   40  sudo ufw app list
+   41  systemctl status nginx
+   42  ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+   43  curl localhost:80
+   44  exit
+   45  curl localhost:80
+   46  exit
+   47  history
+
+   nginx working
+
+   

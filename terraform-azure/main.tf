@@ -108,7 +108,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   size                = "Standard_F2"
-  admin_username      = "adminuser"
+  admin_username      = "cevans"
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
@@ -118,8 +118,8 @@ resource "azurerm_linux_virtual_machine" "example" {
   custom_data = filebase64("customdata.tpl")
 
   admin_ssh_key {
-    username   = "adminuser"
-    public_key = file("~/.ssh/azure-key.pub")
+    username   = "cevans"
+    public_key = file("~/.ssh/cevans.pub")
   }
 
   os_disk {
