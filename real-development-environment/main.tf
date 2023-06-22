@@ -1,3 +1,4 @@
+# Uncomment to run 
 terraform {
   required_providers {
     azurerm = {
@@ -7,7 +8,7 @@ terraform {
   }
 }
 
-# Configure the Microsoft Azure Provider
+# Configure the Microsoft Acd zure Provider
 provider "azurerm" {
   features {}
 }
@@ -15,7 +16,7 @@ provider "azurerm" {
 # Create a resource group
 #What it is               Alias
 resource "azurerm_resource_group" "example" {
-  name     = "rg-junk-terraform"
+  name     = "rg-development-area-terraform"
   location = "usgovvirginia"
   tags = {
     environment = "dev"
@@ -26,10 +27,10 @@ resource "azurerm_resource_group" "example" {
 # Create a virtual network within the resource group
 #What it is               Alias
 resource "azurerm_virtual_network" "example-network" {
-  name                = "rg-junk-terraform-network"
+  name                = "rg-development-area-terraform-network"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  address_space       = ["170.123.0.0/16"]
+  address_space       = ["170.126.0.0/16"]
   tags = {
     environment = "dev"
     lifespan    = "disposable"
@@ -37,14 +38,14 @@ resource "azurerm_virtual_network" "example-network" {
 }
 
 resource "azurerm_subnet" "example-subnet" {
-  name                 = "rg-junk-subnet"
+  name                 = "rg-development-area-subnet"
   resource_group_name  = azurerm_resource_group.example.name
   virtual_network_name = azurerm_virtual_network.example-network.name
-  address_prefixes     = ["170.123.1.0/24"]
+  address_prefixes     = ["170.126.1.0/24"]
 }
 
 resource "azurerm_network_security_group" "junk-sg" {
-  name                = "terraform-junk-sg"
+  name                = "terraform-development-area-sg"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   tags = {
@@ -54,7 +55,7 @@ resource "azurerm_network_security_group" "junk-sg" {
 }
 
 resource "azurerm_network_security_rule" "junk-rule" {
-  name                        = "dev-junk-rule"
+  name                        = "dev-development-area-rule"
   priority                    = 100
   direction                   = "Inbound" # allow access 
   access                      = "Allow"
@@ -87,7 +88,7 @@ resource "azurerm_public_ip" "junk-public-ip" {
 
 
 resource "azurerm_network_interface" "example" {
-  name                = "junk-nic"
+  name                = "development-area-nic"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
@@ -104,11 +105,11 @@ resource "azurerm_network_interface" "example" {
 }
 
 resource "azurerm_linux_virtual_machine" "example" {
-  name                = "example-machine"
+  name                = "alvarez-development-machine"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   size                = "Standard_F2"
-  admin_username      = "cevans"
+  admin_username      = "jalvarez"
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
@@ -118,8 +119,8 @@ resource "azurerm_linux_virtual_machine" "example" {
   custom_data = filebase64("customdata.tpl")
 
   admin_ssh_key {
-    username   = "cevans"
-    public_key = file("~/.ssh/cevans.pub")
+    username   = "jalvarez"
+    public_key = file("~/.ssh/jalvarez.pub")
   }
 
   os_disk {
@@ -156,5 +157,5 @@ data "azurerm_public_ip" "junk_public_ip_data" {
 }
 
 output "public-ip-address" {
-  value       = "${azurerm_linux_virtual_machine.example.name}: ${data.azurerm_public_ip.junk_public_ip_data.ip_address} "
+  value = "${azurerm_linux_virtual_machine.example.name}: ${data.azurerm_public_ip.junk_public_ip_data.ip_address} "
 }

@@ -20,9 +20,9 @@ sudo apt-get update &&
 apt-cache policy docker-ce &&
 sudo apt-get install -y docker-ce &&
 sudo systemctl status docker &&
-sudo usermod -aG docker cevans &&
+sudo usermod -aG docker jalvarez &&
 id -nG &&
-sudo usermod -aG docker cevans  && 
+sudo usermod -aG docker jalvarez  && 
 echo docker >> /tmp/diditwork
 
 # kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
