@@ -1,5 +1,5 @@
 # Uncomment to run 
-#terraform {
+terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -8,7 +8,7 @@
   }
 }
 
-# Configure the Microsoft Azure Provider
+# Configure the Microsoft Acd zure Provider
 provider "azurerm" {
   features {}
 }

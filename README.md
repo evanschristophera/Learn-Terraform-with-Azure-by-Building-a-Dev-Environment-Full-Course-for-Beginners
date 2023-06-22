@@ -17,33 +17,29 @@
 
 # History from latest session so I can repeat it.
 
-  1.  ```clear```
-  2.  ```ls```
-  3.  ```tar -xvzf db.xvzf```
-  4.  ```docker run -d -p 5000:5000 --restart=always --name registry registry:2```
-  5.  ```cd database-rimfire-de-mk2/```
-  6.  ```ls```
-  7.  ```cd database/```
-  8.  ```ls```
-  9.  ```cd database_```
-  10. ```cd database_init/```
-  11. ```ls```
-  12. ```cd ~/database-rimfire-de-mk2/```
-  13. ```find . -name skaffold.y*```
-  14. ```cd database/```
-  15. ```ls```
-  16. ```skaffold debug```
-  17. ```minikube```
-  18. ```cd```
-  19. ```curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb```
-  20. ```sudo dpkg -i minikube_latest_amd64.deb```
-  21. ```minikube start```
-  22. ```kubectl get po -A```
-  23. ```echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check```
-  24. ```sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl```
-  25. ```kubectl version --client```
-  26. ```kubectl version --client --output=yaml```
-  27. ```history```
+  1.  ```cat /tmp/diditwork```
+  1. ```java --version```
+  1. ```cat /tmp/diditwork```
+  1. ```nodejs```
+  1. ```npm```
+  1. ```ls```
+  1. ```ps```
+  1. ```ps -ef```
+  1. ```ps -ef | grep apt```
+  1. ```cat /tmp/diditwork```
+  1. ```sudo apt-get install openjdk-11-jdk -y &&  echo "java11" >> /tmp/diditwork```
+  1. ```sudo add-apt-repository ppa:openjdk-r/ppa```
+  1. ```sudo add-apt-repository ppa:openjdk-r/ppa -y```
+  1. ```sudo apt-get install openjdk-11-jdk -y &&  echo "java11" >> /tmp/diditwork```
+  1. ```sudo apt update```
+  1. ```java -version```
+  1. ```sudo apt-get upgrade```
+  1. ```sudo apt-get install openjdk-11-jdk```
+  1. ```sudo apt-get install openjdk-11-jdk -y```
+  1. ```sudo apt-get update && sudo apt-get upgrade```
+  1. ```sudo apt-get install openjdk-17-jdk```
+  1. ```sudo apt-get install openjdk-17-jre -y```
+  1. ```history```
 
 [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/)
 
