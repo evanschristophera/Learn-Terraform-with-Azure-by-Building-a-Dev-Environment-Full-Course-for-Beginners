@@ -47,17 +47,31 @@ echo minikube >> /tmp/diditwork
 
 
 # Java 8 for netextender
-sudo apt-get install openjdk-8-jdk -y && 
-echo java8 >> /tmp/diditwork
+sudo apt install openjdk-8-jre -y &&
+sudo apt install openjdk-8-jdk -y &&
+echo "java8" >> /tmp/diditwork
 
-sudo apt-get install openjdk-11-jdk -y && 
-echo "java11" >> /tmp/diditwork 
-sudo apt install openjdk-17-jdk -y && 
-echo "java-17" >>  /tmp/diditwork 
+# cevans@example-machine:~$ javac -version
+# Command 'javac' not found, but can be installed with:
+# sudo apt install openjdk-11-jdk-headless  # version 11.0.19+7~us1-0ubuntu1~22.04.1, or
+# sudo apt install default-jdk              # version 2:1.11-72build2
+# sudo apt install openjdk-17-jdk-headless  # version 17.0.7+7~us1-0ubuntu1~22.04.2
+# sudo apt install openjdk-18-jdk-headless  # version 18.0.2+9-2~22.04
+# sudo apt install openjdk-19-jdk-headless  # version 19.0.2+7-0ubuntu3~22.04
+# sudo apt install openjdk-8-jdk-headless   # version 8u372-ga~us1-0ubuntu1~22.04
+# sudo apt install ecj                      # version 3.16.0-1
+
+sudo apt install openjdk-17-jdk-headless -y && 
+sudo apt install openjdk-17-jre-headless -y &&
+echo java17 >> /tmp/diditwork 
+
+
 
 # Node stuff
 sudo apt install nodejs -y &&
-echo nodejs >> /tmp/diditwork
-
+echo nodejs >> /tmp/diditwork &&
 sudo apt install npm -y &&
 echo npm >> /tmp/diditwork
+
+
+echo hi >> /tmp/diditwork
