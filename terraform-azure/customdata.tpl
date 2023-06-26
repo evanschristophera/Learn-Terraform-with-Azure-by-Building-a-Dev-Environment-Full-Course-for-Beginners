@@ -73,5 +73,9 @@ echo nodejs >> /tmp/diditwork &&
 sudo apt install npm -y &&
 echo npm >> /tmp/diditwork
 
+sudo apt install dos2unix &&
+echo dos2unix /tmp/diditwork
+
+
 
 echo hi >> /tmp/diditwork
