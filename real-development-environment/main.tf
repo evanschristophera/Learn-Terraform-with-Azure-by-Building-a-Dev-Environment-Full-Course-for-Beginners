@@ -1,5 +1,5 @@
 # Uncomment to run 
-#terraform {
+terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -108,7 +108,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   name                = "alvarez-development-machine"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  size                = "Standard_D2s_v3"
+  size                = "Standard_D8d_v4"
   admin_username      = "jalvarez"
   network_interface_ids = [
     azurerm_network_interface.example.id,
